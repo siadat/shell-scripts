@@ -1,4 +1,5 @@
-#!/bin/sh
+#! /bin/sh
+# Usage: feh-shuf.sh [dir]
 LIST_FILE=`mktemp`
 DIR=$*
 if [ ! -z "${DIR}" ]; then

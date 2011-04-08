@@ -1,4 +1,4 @@
-#!/bin/sh
+#! /bin/sh
 LIST_FILE=`mktemp`
 FOLDER=$1
 FILE=$2

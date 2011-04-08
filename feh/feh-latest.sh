@@ -1,4 +1,5 @@
-#!/bin/sh
+#! /bin/sh
+# Usage: feh-latest.sh [dir]
 LIST_FILE=`mktemp`
 DIR=$*
 if [ ! -z "${DIR}" ]; then

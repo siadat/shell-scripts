@@ -1,3 +1,3 @@
-#!/bin/bash
+#! /bin/sh
 find -iname "*${*}*" -type f\
   |grep --color=auto "${*}"

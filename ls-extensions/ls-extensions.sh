@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/sh
 # Sina Siadat
 # List file extensions order by the number of their occurances
 

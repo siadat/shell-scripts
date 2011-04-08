@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/sh
 # Fri 25 Feb 2011 15:06:43 IRST (+0330)
 # -b flag depends on beep.sh for beeping
 

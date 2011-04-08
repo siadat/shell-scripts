@@ -1,6 +1,9 @@
 #!/usr/bin/zsh
+# Get time and date in the cities I care about
+# Usage: date.sh
+# Suggestions: watch --color -n 1 date.sh
 
-# NOTE: uses zsh!
+# NOTE: uses zsh
 
 bldylw='\e[1;33m' # Yellow
 bldwht='\e[1;37m' # White
