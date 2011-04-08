@@ -1,0 +1,16 @@
+#! /bin/bash
+FACES=( \
+       "  :o)  :o)  :o)  :o)" \
+       "  :->  :->  :->  :->" \
+       "  8~)  8~)  8~)  8~)" \
+       "  :O]  :O]  :O]  :O]" \
+       )
+
+FACES_LEN=${#FACES[*]}
+RAND_INT=($[RANDOM%$FACES_LEN])
+
+echo "   .    .    .    ."
+echo "  ~~~  ~~~  ~~~  ~~~"
+echo "${FACES[$RAND_INT]}"
+echo "  ~~~  ~~~  ~~~  ~~~"
+echo "   .    .    .    ."
