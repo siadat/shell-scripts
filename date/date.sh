@@ -15,22 +15,27 @@ getdate() {
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 export TZ=Asia/Tehran
-IRST=`getdate`
+IRA=`getdate`
 export TZ=Europe/London
-GMT=`getdate`
-#export TZ=America/Montreal
+LON=`getdate`
 export TZ=America/New_York
-EST=`getdate`
+NYC=`getdate`
 export TZ=America/Chicago
-CST=`getdate`
+CHI=`getdate`
 export TZ=America/Los_Angeles
-PST=`getdate`
+LOS=`getdate`
+export TZ=Asia/Singapore
+SIN=`getdate`
+export TZ=Australia/Sydney
+SYD=`getdate`
 
-echo "     Tehran ${IRST}"
-echo "     London ${GMT}"
-echo "   New York ${EST} (Eastern) = Quebec"
-echo "    Chicago ${CST} (Central)"
-echo "Los Angeles ${PST} (Pacific)"
+echo "     Sydney ${SYD}"
+echo "  Singapore ${SIN}"
+echo "     Tehran ${IRA}"
+echo "     London ${LON}"
+echo "   New York ${NYC} (Eastern) = Quebec"
+echo "    Chicago ${CHI} (Central)"
+echo "Los Angeles ${LOS} (Pacific)"
 
 # not needed:
 unset TZ

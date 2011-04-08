@@ -36,7 +36,7 @@ Just a quick shortcut for find, plus grep for coloured output.
 
     find-largest.sh [iname]
 
-Find matching iname files, ordered by the largest.
+Find matching iname files, ordered by the size.
 
     find-latest.sh [iname]
 
@@ -62,4 +62,4 @@ Find and replace iname with replacement
 
     screenshot.sh
 
-Wait 2 seconds and save the current screen.
+Waits 2 seconds and saves the current screen.
