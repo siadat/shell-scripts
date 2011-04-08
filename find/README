@@ -1,2 +1,0 @@
-This scripts look at filenames (the way find -name and -regex works). If you
-want to look into the content of your files I strongly recommend ack-grep.
