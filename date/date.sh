@@ -10,7 +10,7 @@ bldwht='\e[1;37m' # White
 txtrst='\e[0m'    # Text Reset
 
 getdate() { 
-  date +"%:z ${bldwht}%T${txtrst} %F ${bldylw}%Z${txtrst}" 
+  date +"%:z ${bldwht}%T${txtrst} %a %F ${bldylw}%Z${txtrst}" 
 }
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones

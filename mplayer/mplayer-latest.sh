@@ -1,5 +1,5 @@
 #! /bin/bash
-BASE_DIR=$(dirname $0)
+BASE_DIR=$(dirname "$0")
 . $BASE_DIR/mplayer-lib.sh
 LIST_FILE=`mktemp`
 find -type f -printf "%TY-%Tm-%Td--%TH:%TM %p\n" \
