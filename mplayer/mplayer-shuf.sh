@@ -4,7 +4,7 @@ BASE_DIR=$(dirname "$0")
 LIST_FILE=`mktemp`
 FOLDER=$*
 cd ./$FOLDER
-find -type f \
+find -type f -maxdepth 1 \
   |grep -i -v ".*\(${NOT_VIDEO}\)" \
   |shuf \
   |while read file 

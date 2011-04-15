@@ -17,7 +17,7 @@ getdate() {
   if [ $LOCAL_TZ != `date +"%Z"` ]; then
     echo -e "`date +"${bldwht}%T${txtrst} %a %F %:z %Z"`"
   else                                           
-    echo -e "`date +"${bldylw}%T${txtrst} ${bldylw}%a %F ${txtrst}%:z %Z"`"
+    echo -e "`date +"${bldylw}%T${txtrst} ${bldred}%a %F ${txtrst}%:z %Z"`"
   fi
 }
 

@@ -2,7 +2,7 @@
 BASE_DIR=$(dirname "$0")
 . $BASE_DIR/mplayer-lib.sh
 LIST_FILE=`mktemp`
-find -type f -printf "%TY-%Tm-%Td--%TH:%TM %p\n" \
+find -type f -maxdepth 1 -printf "%TY-%Tm-%Td--%TH:%TM %p\n" \
   |sort -r \
   |sed -e "s/^[^ ]* //g" \
   |grep -i -v ".*\(${NOT_VIDEO}\)" \
