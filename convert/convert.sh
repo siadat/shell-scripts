@@ -1,26 +1,30 @@
 #! /bin/sh
 # Usage example: convert.sh 10000USD
-FROM=$1
 
 convert() {
-  # Note: the following JSON extrator assumes that the results are wrapped in 
-  # double-quotes, e.g. {lhs: "blah"}. And that the second "blah" is rhs.
-  # Comment the |nl line if converted value is not the second line.
+
+  # Following JSON extrator assumes that the results are wrapped in
+  # double-quotes, e.g. {lhs: "blah"}
 
   if [ x"`echo $1 |grep -o $2`" = x ]; then
 
     RESULT=`curl -s "http://www.google.com/ig/calculator?hl=en&q=$1=?$2" \
-      | tr -c -d '[:print:]'`
+      | tr --complement --delete '[:print:]' \
+      | tr --delete '\n\r'`
+    
+    # google returns special space character to group every 3 digits, but grep
+    # mistakes it with a newline. So we remove everything that is NOT printable.
 
     echo ${RESULT} \
-      | grep -o -e '"[^"]\+"' \
-      | sed -e 's/"\([^"]\+\)"/\1/g' \
-      | nl |grep -e "^\s*2" |sed -e "s/^\s*2//g" \
+      | sed -e 's/\("[^"]\+"\)/\1\n/g' \
+      | grep -e 'rhs' \
+      | sed -e 's/.*"\([^"]\+\)".*/\1/g' \
       | grep --color=auto "[0-9]\+"
 
   fi
 }
 
+FROM=$1
 convert $FROM "GBP"
 convert $FROM "USD"
 convert $FROM "CAD"
