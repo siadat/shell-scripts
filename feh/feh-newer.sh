@@ -1,10 +1,9 @@
 #! /bin/sh
 LIST_FILE=`mktemp`
-FOLDER=$1
-FILE=$2
-'find' $FOLDER -type f -cnewer $FILE -printf "%T@ %p\n" \
-  |sort  \
-  |grep -o " .*"  \
+FILE=$*
+find -maxdepth 1 -newer "${FILE}" -type f -printf "%T@ %p\n" \
+  | sort -n \
+  | grep -o " .*"  \
   | while read file
 do
     echo "$file" >> $LIST_FILE

@@ -15,9 +15,9 @@ LOCAL_TZ=`date +"%Z"`
 getdate() { 
   export TZ=$1
   if [ $LOCAL_TZ != `date +"%Z"` ]; then
-    echo -e "`date +"${bldwht}%T${txtrst} %a %F %:z %Z"`"
+    echo -e "`date +"${bldwht}%H:%M${txtrst} %a %F %:z %Z"`"
   else                                           
-    echo -e "`date +"${bldylw}%T${txtrst} ${bldred}%a %F ${txtrst}%:z %Z"`"
+    echo -e "`date +"${bldylw}%H:%M${txtrst} ${bldred}%a %F ${txtrst}%:z %Z"`"
   fi
 }
 
