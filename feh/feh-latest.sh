@@ -1,5 +1,7 @@
-#! /bin/sh
+#! /bin/bash
 # Usage: feh-latest.sh [dir]
+BASE_DIR=$(dirname "$0")
+. $BASE_DIR/feh-lib.sh
 LIST_FILE=`mktemp`
 DIR=$*
 if [ ! -z "${DIR}" ]; then
@@ -7,10 +9,11 @@ if [ ! -z "${DIR}" ]; then
 fi
 
 'ls' -1tp `pwd`     \
-  |grep -v ".*/"    \
-  |while read file
+  | grep -v ".*/"    \
+  | grep -i -v ".*\(${NOT_PHOTO}\)$" \
+  | while read file
 do
   echo "`pwd`/${file}" >> $LIST_FILE
 done
 
-feh -ZF --hide-pointer -f $LIST_FILE
+start_feh "$LIST_FILE"

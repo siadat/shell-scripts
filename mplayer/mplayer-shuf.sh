@@ -12,4 +12,5 @@ find -type f -maxdepth 1 \
     echo "`pwd`/${file}" >> $LIST_FILE
   done
 
+tac $LIST_FILE
 start_mplayer $LIST_FILE
