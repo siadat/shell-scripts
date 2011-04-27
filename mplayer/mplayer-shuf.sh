@@ -2,8 +2,6 @@
 BASE_DIR=$(dirname "$0")
 . $BASE_DIR/mplayer-lib.sh
 LIST_FILE=`mktemp`
-FOLDER=$*
-cd ./$FOLDER
 find -type f -maxdepth 1 \
   |grep -i -v ".*\(${NOT_VIDEO}\)" \
   |shuf \

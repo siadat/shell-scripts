@@ -3,9 +3,9 @@ BASE_DIR=$(dirname "$0")
 . $BASE_DIR/mplayer-lib.sh
 LIST_FILE=`mktemp`
 find -type f -maxdepth 1 -iname "*${*}*" -printf "%T@ %p\n" \
-  |sort -rg \
+  |sort -g \
   |sed -e "s/^[^ ]* //g" \
-  |grep -i -v ".*\(${NOT_VIDEO}\)" \
+  |grep -i -v ".*\(${NOT_VIDEO}\)$" \
   |while read file 
   do
     echo "`pwd`/${file}" >> $LIST_FILE
