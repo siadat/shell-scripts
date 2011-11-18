@@ -1,8 +1,23 @@
-#! /bin/sh
-echo "Find regexp: \<${1}\>"
-echo "Replace with: ${2}"
-echo "In these files:"
-find -type f |xargs grep --color=auto "\<${1}\>"
-echo "Press enter to confirm..."
+#!/bin/bash
+# Uses Ack for searching and Perl for replacing.
+# Note: in Debian Ack is called `ack-grep` instead.
+regex=${1}
+replace=${2}
+filenames=`ack -lw ${regex}`
+
+if [ -z ${filenames} ]; then
+  echo 'No match.'
+  exit
+fi
+
+ack -w ${regex}
+echo -n "s/${regex}/${replace}/g (y/n)> "
 read user_enter
-find -type f |xargs grep -l "\<${1}\>" |xargs sed -i -e "s/\<${1}\>/${2}/g"
+
+if [ "$user_enter" != 'y' ]; then
+  exit
+fi
+
+ack -lw --print0 ${1} |xargs -0 -n 1 perl -i -pe "s/${regex}/${replace}/g"
+echo 'Updated files:'
+echo $filenames
