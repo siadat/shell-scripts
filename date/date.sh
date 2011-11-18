@@ -2,7 +2,7 @@
 # What: Get time and date in the cities I care about, high light local zone.
 # Usage: date.sh
 # Suggestions: watch --color -n 1 date.sh
-# Requires: bash
+# Requires: bash, GNU date
 
 bldred='\e[1;31m' # Red
 bldgrn='\e[1;32m' # Green
@@ -15,9 +15,9 @@ LOCAL_TZ=`date +"%Z"`
 getdate() { 
   export TZ=$1
   if [ $LOCAL_TZ != `date +"%Z"` ]; then
-    echo -e "`date +"${bldwht}%H:%M${txtrst} %a %F %:z %Z"`"
+    printf "`date +"${bldwht}%H:%M${txtrst} %a %F %:z %Z"`"
   else                                           
-    echo -e "`date +"${bldylw}%H:%M${txtrst} ${bldred}%a %F ${txtrst}%:z %Z"`"
+    printf "`date +"${bldylw}%H:%M${txtrst} ${bldred}%a %F ${txtrst}%:z %Z"`"
   fi
 }
 
@@ -30,10 +30,11 @@ LOS=`getdate "America/Los_Angeles"`
 SIN=`getdate "Asia/Singapore"`
 SYD=`getdate "Australia/Sydney"`
 
-echo "     Sydney ${SYD}"
-echo "  Singapore ${SIN}"
-echo "     Tehran ${IRA}"
-echo "     London ${LON}"
-echo "   New York ${NYC}" # (Eastern and Quebec)"
-echo "    Chicago ${CHI}" # (Central)"
-echo "Los Angeles ${LOS}" # (Pacific)"
+printf "\n     Sydney ${SYD}"
+printf "\n  Singapore ${SIN}"
+printf "\n     Tehran ${IRA}"
+printf "\n     London ${LON}"
+printf "\n   New York ${NYC}" # (Eastern and Quebec)"
+printf "\n    Chicago ${CHI}" # (Central)"
+printf "\nLos Angeles ${LOS}" # (Pacific)"
+printf "\n"
